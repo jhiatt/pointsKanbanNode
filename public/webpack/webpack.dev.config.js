@@ -27,6 +27,3 @@ module.exports = {
     historyApiFallback: true
   }
 };
-
-//i'm guessing the first test is just so the file looks at node_modules first
-//look into less-loader
