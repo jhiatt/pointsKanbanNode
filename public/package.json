@@ -5,13 +5,18 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --mode development --config ./webpack/webpack.dev.config.js"
+    "devOnly": "webpack-dev-server --mode development --config ./webpack/webpack.dev.config.js",
+    "scss": "node-sass --watch style -o css",
+    "dev": "npm run scss | npm run devOnly"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "node-sass": "^4.7.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-redux": "^5.0.7",
+    "redux": "^3.7.2",
     "webpack": "^4.1.1",
     "webpack-dev-server": "^3.1.1"
   },
