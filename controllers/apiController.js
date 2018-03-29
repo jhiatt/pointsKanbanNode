@@ -1,4 +1,5 @@
 var Tests = require('../models/testModel.js');
+var Cards = require('../models/cardData.js');
 var bodyParser = require('body-parser');
 
 
@@ -6,7 +7,57 @@ module.exports = function(app) {
 
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
+  
+  //CARD ROUTES
+  app.get('/api/card/:uname', function(req, res) {
+    Cards.find({ username: req.params.uname },
+      function(err, card) {
+        if (err) throw err;
+        res.send(card);
+      });
+  });
 
+  app.get('/api/card/:id', function(req, res) {
+    Cards.findById({ _id: req.params.id }, 
+      function(err, card) {
+        if (err) throw err;
+        res.send(card);
+      });
+  });
+
+  app.post('/api/card', function(req, res) {
+    if (req.body.id) {
+      Cards.findByIdAndUpdate(req.body.id, {
+
+        cardTitle: req.body.cardTitle,
+        cardDescription: req.body.cardDescription
+
+      });
+    } else {
+      var newCard = Cards({
+        username: req.body.username,
+        cardTitle: req.body.cardTitle,
+        cardDescription: req.body.cardDescription
+      }, function(err, card) {
+        if (err) throw err;
+        res.send('Sucessfully updated');
+      });
+      newCard.save(function(err) {
+        if(err) throw err;
+        res.send('Sucessfully created');
+      });
+    };
+  });
+
+  app.delete('/api/card/:id', function(req, res) {
+    Cards.findByIdAndRemove(req.body.id, function (err) {
+      if (err) throw err;
+      res.send('Deleted');
+    });
+  });
+
+
+  //TEST ROUTES
   app.get('/api/test/:uname', function(req, res) {
 
     Tests.find({ username: req.params.uname },
