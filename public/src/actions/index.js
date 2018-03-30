@@ -1,3 +1,5 @@
+//this page will hold all the actions so if any actions are called they will find them by name
+
 import axios from 'axios';
 
 const TEST_ROOT_URL = 'http://localhost:3000/api/test/';
@@ -5,6 +7,7 @@ const CARD_ROOT_URL = 'http://localhost:3000/api/card/';
 
 export const PULL_TEST_DATA = 'PULL_TEST_DATA';
 export const PULL_CARD_DATA = 'PULL_CARD_DATA';
+export const NEW_CARD_DATA = 'NEW_CARD_DATA';
 
 export function pullTestData(username) {
   const url = TEST_ROOT_URL + username;
@@ -23,5 +26,13 @@ export function pullCardData(username) {
   return {
     type: PULL_CARD_DATA,
     payload: request
+  };
+}
+
+export function newCardData(newCard) {
+
+  return {
+    type: NEW_CARD_DATA,
+    payload: newCard
   };
 }
