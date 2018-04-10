@@ -4,6 +4,7 @@ import axios from 'axios';
 
 const TEST_ROOT_URL = 'http://localhost:3000/api/test/';
 const CARD_ROOT_URL = 'http://localhost:3000/api/card/';
+// const username = 'jhiatt';
 
 export const PULL_TEST_DATA = 'PULL_TEST_DATA';
 export const PULL_CARD_DATA = 'PULL_CARD_DATA';
