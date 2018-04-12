@@ -13,9 +13,11 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
+    "materialize-css": "^1.0.0-beta",
     "node-sass": "^4.7.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-materialize": "^2.2.0",
     "react-redux": "^5.0.7",
     "redux": "^3.7.2",
     "redux-promise": "^0.5.3",
