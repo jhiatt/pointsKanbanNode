@@ -1,15 +1,19 @@
 import React, {Component} from 'react';
-import New_card_form from '../containers/newCard';
+import NewCardForm from '../containers/newCard';
 import Column from '../containers/column';
+import {Container} from 'reactstrap';
+
 
 export default class App extends Component {
   render () {
       return (
         <div>
-          <Column></Column>
+          <Container>
+            <Column></Column>
+            <NewCardForm></NewCardForm>
+          </Container>
         </div>
       );
   }
 }
 
-          // <New_card_form></New_card_form>

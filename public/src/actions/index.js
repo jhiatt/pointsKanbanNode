@@ -31,9 +31,14 @@ export function pullCardData(username) {
 }
 
 export function newCardData(newCard) {
+  const url = CARD_ROOT_URL;
+  const request = axios.post(url, {
+        cardTitle: newCard.cardTitle,
+        cardDescription: newCard.cardDescription
+      });
 
   return {
     type: NEW_CARD_DATA,
-    payload: newCard
+    payload: request
   };
 }

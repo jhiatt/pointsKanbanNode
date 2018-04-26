@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { pullCardData } from '../actions/index';
-import Card from '../components/card';
+import CardJob from '../components/cardJob';
+import {Col, Row} from 'reactstrap';
+
 
 
 //missing anything here?  Also still need to get the data from the api into Redux
@@ -18,38 +20,21 @@ class Column extends Component {
     this.componentDidMount = this.componentDidMount.bind(this);
   }
 
-  // onFormSubmit(event) {
-  //   event.preventDefault();
-
-  //   // We need to go and fetch weather data
-  //   this.props.pullCardData('jhiatt');
-  //   this.setState({ term: "" });
-  // }
-        // How do I call this function to make the API call????
-  // this.props.pullCardData('jhiatt');
-
   componentDidMount() {
     this.props.pullCardData('jhiatt');
     {console.log('hii', this.props.cards)};
   }
 
-  // renderCards(cardData) {
-  //   return (
-  //       <div key={cardData.id} >
-  //       heeeeeeheeeeheeee
-  //         {console.log('realliffee', cardData.cardTitle)}{cardData.cardTitle}
-  //       </div>  
-  //   );
-  // }
-
   render() {
     const { cards } = this.props;
     return (
       <div>
-        <Col s={1}>
-          {cards.map(card => <Card key={card.id} data={card}></Card>)}
+        <Row>
+          <Col xs="3">
+            {cards.map(card => <CardJob key={card.id} data={card}></CardJob>)}
 
-        </Col>
+          </Col>
+        </Row>
 
       </div>
       );
